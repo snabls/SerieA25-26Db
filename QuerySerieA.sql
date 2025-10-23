@@ -197,4 +197,24 @@ VALUES
 ('Cremonese', 17, 'Leonardo', 'Sernicola', '1997-07-30', 'Difensore'),
 ('Cremonese', 24, 'Filippo', 'Terracciano', '2003-02-08', 'Difensore'),
 ('Cremonese', 4, 'Tommaso', 'Barbieri', '2002-08-26', 'Difensore'),
-('Cremonese', 22, 'Romano', 'Floriani Mussolini', '2003-01-27', 'Difensore');
+('Cremonese', 22, 'Romano', 'Floriani Mussolini', '2003-01-27', 'Difensore'),
+--insert into Giocatori
+--(Squadra, Numero, Nome, Cognome, DataNascita, Ruolo)
+-- values
+('Cremonese', 33, 'Alberto', 'Grassi', '1995-03-07', 'Centrocampista'),
+('Cremonese', 38, 'Warren', 'Bondo', '2003-09-15', 'Centrocampista'),
+('Cremonese', 32, 'Martín', 'Payero', '1998-09-11', 'Centrocampista'),
+('Cremonese', 27, 'Jari', 'Vandeputte', '1996-02-14', 'Centrocampista'),
+('Cremonese', 18, 'Michele', 'Collocolo', '1999-11-08', 'Centrocampista'),
+('Cremonese', 8, 'Mattia', 'Valoti', '1993-09-06', 'Centrocampista'),
+('Cremonese', 48, 'Dachi', 'Lordkipanidze', '2005-03-08', 'Centrocampista'),
+('Cremonese', 7, 'Alessio', 'Zerbi', '1999-03-03', 'Centrocampista'),
+('Cremonese', 20, 'Franco', 'Vázquez', '1989-02-22', 'Attaccante'),
+('Cremonese', 19, 'Jeremy', 'Sarmiento', '2002-06-16', 'Attaccante'),
+('Cremonese', 11, 'Dennis', 'Johnsen', '1998-02-17', 'Attaccante'),
+('Cremonese', 14, 'Faris', 'Moumbagna', '2000-07-01', 'Attaccante'),
+('Cremonese', 99, 'Antonio', 'Sanabria', '1996-03-04', 'Attaccante'),
+('Cremonese', 9, 'Manuel', 'De Luca', '1998-07-17', 'Attaccante'),
+('Cremonese', 77, 'David', 'Okereke', '1997-08-29', 'Attaccante'),
+('Cremonese', 10, 'Jamie', 'Vardy', '1987-01-11', 'Attaccante'),
+('Cremonese', 90, 'Federico', 'Bonazzoli', '1997-05-21', 'Attaccante');
