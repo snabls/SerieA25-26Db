@@ -198,9 +198,6 @@ VALUES
 ('Cremonese', 24, 'Filippo', 'Terracciano', '2003-02-08', 'Difensore'),
 ('Cremonese', 4, 'Tommaso', 'Barbieri', '2002-08-26', 'Difensore'),
 ('Cremonese', 22, 'Romano', 'Floriani Mussolini', '2003-01-27', 'Difensore'),
---insert into Giocatori
---(Squadra, Numero, Nome, Cognome, DataNascita, Ruolo)
--- values
 ('Cremonese', 33, 'Alberto', 'Grassi', '1995-03-07', 'Centrocampista'),
 ('Cremonese', 38, 'Warren', 'Bondo', '2003-09-15', 'Centrocampista'),
 ('Cremonese', 32, 'Martín', 'Payero', '1998-09-11', 'Centrocampista'),
@@ -217,4 +214,36 @@ VALUES
 ('Cremonese', 9, 'Manuel', 'De Luca', '1998-07-17', 'Attaccante'),
 ('Cremonese', 77, 'David', 'Okereke', '1997-08-29', 'Attaccante'),
 ('Cremonese', 10, 'Jamie', 'Vardy', '1987-01-11', 'Attaccante'),
-('Cremonese', 90, 'Federico', 'Bonazzoli', '1997-05-21', 'Attaccante');
+('Cremonese', 90, 'Federico', 'Bonazzoli', '1997-05-21', 'Attaccante'),
+/*insert into Giocatori
+ (Squadra, Numero, Nome, Cognome, DataNascita, Ruolo)
+ values*/('Fiorentina', 43, 'David', 'De Gea', '1990-11-07', 'Portiere'),
+('Fiorentina', 30, 'Tommaso', 'Martinelli', '2006-01-06', 'Portiere'),
+('Fiorentina', 1, 'Luca', 'Lezzerini', '1995-03-24', 'Portiere'),
+('Fiorentina', 15, 'Pietro', 'Comuzzo', '2005-02-20', 'Difensore'),
+('Fiorentina', 6, 'Luca', 'Ranieri', '1999-04-23', 'Difensore'),
+('Fiorentina', 5, 'Marin', 'Pongracic', '1997-09-11', 'Difensore'),
+('Fiorentina', 26, 'Mattia', 'Vitti', '2002-01-24', 'Difensore'),
+('Fiorentina', 18, 'Pablo', 'Marí', '1993-08-31', 'Difensore'),
+('Fiorentina', 23, 'Eman', 'Kospo', '2007-05-17', 'Difensore'),
+('Fiorentina', 60, 'Eddy', 'Kouadio', '2006-05-07', 'Difensore'),
+('Fiorentina', 29, 'Niccolò', 'Fortini', '2006-02-13', 'Difensore'),
+('Fiorentina', 21, 'Robin', 'Gosens', '1994-07-05', 'Difensore'),
+('Fiorentina', 65, 'Fabiano', 'Parisi', '2000-11-09', 'Difensore'),
+('Fiorentina', 2, 'Dodô', 'dos Santos', '1998-11-17', 'Difensore'),
+('Fiorentina', 48, 'Tariq', 'Lamptey', '2000-09-30', 'Difensore'),
+('Fiorentina', 8, 'Rolando', 'Mandragora', '1997-06-29', 'Centrocampista'),
+('Fiorentina', 44, 'Nicolò', 'Fagioli', '2001-02-12', 'Centrocampista'),
+('Fiorentina', 7, 'Simon', 'Sohm', '2001-04-11', 'Centrocampista'),
+('Fiorentina', 22, 'Jacopo', 'Fazzini', '2003-03-16', 'Centrocampista'),
+('Fiorentina', 14, 'Hans', 'Nicolussi Caviglia', '2000-06-18', 'Centrocampista'),
+('Fiorentina', 24, 'Amir', 'Richardson', '2002-01-24', 'Centrocampista'),
+('Fiorentina', 27, 'Cher', 'Ndour', '2004-07-27', 'Centrocampista'),
+('Fiorentina', 19, 'Gino', 'Infantino', '2003-05-19', 'Centrocampista'),
+('Fiorentina', 11, 'Abdelhamid', 'Sabiri', '1996-11-28', 'Centrocampista'),
+('Fiorentina', 10, 'Albert', 'Gudmundsson', '1997-06-15', 'Attaccante'),
+('Fiorentina', 20, 'Moise', 'Kean', '2000-02-28', 'Attaccante'),
+('Fiorentina', 91, 'Roberto', 'Piccoli', '2001-01-27', 'Attaccante'),
+('Fiorentina', 99, 'Christian', 'Kouamé', '1997-12-06', 'Attaccante'),
+('Fiorentina', 9, 'Edin', 'Dzeko', '1986-03-17', 'Attaccante'),
+('Fiorentina', 61, 'Riccardo', 'Braschi', '2006-08-24', 'Attaccante');
