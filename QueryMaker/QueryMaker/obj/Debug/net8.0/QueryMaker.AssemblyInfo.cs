@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QueryMaker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f13b1358d5fa60ed7673308c940e30022506aa0d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+02eadb51b4c3d7c136a7e6a93fb7ad38df605a50")]
 [assembly: System.Reflection.AssemblyProductAttribute("QueryMaker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QueryMaker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
