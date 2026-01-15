@@ -10,9 +10,11 @@ namespace QueryMaker
             int sceltaSquadra = 0;
             int sceltaRuolo = 0;
             int numero = 0;
+            bool ok;
             string nome = string.Empty;
             string cognome = string.Empty;
             string dataDiNascita = string.Empty;
+            string tempBD;
             StringBuilder sB = new StringBuilder();
             StringBuilder sB2 = new StringBuilder();
             string[] squadre = new string[20];
@@ -58,20 +60,35 @@ namespace QueryMaker
                 switch (scelta)
                 {
                     case 1:
-                        Console.WriteLine("Inserire il numero della squadra");
-                        Console.WriteLine(sB.ToString());
-                        sceltaSquadra = int.Parse(Console.ReadLine());
-                        Console.WriteLine("Inserire il numero");
-                        numero = int.Parse(Console.ReadLine());
+
+                        do
+                        {
+                            Console.WriteLine("Inserire il numero della squadra");
+                            Console.WriteLine(sB.ToString());
+                            ok = int.TryParse(Console.ReadLine(), out sceltaSquadra);
+                        } while (!ok);
+                        do
+                        {
+                            Console.WriteLine("Inserire il numero");
+                            ok = int.TryParse(Console.ReadLine(), out numero);
+                        } while (!ok);
                         Console.WriteLine("Inserire il nome");
                         nome = Console.ReadLine();
                         Console.WriteLine("Inserire il cognome");
                         cognome = Console.ReadLine();
-                        Console.WriteLine("Inserire la data di nascita");
-                        dataDiNascita = Console.ReadLine();
-                        Console.WriteLine("Inserire il numero del ruolo");
-                        Console.WriteLine(sB2.ToString());
-                        sceltaRuolo = int.Parse(Console.ReadLine());
+                        do
+                        {
+                            Console.WriteLine("Inserire la data di nascita");
+                            tempBD = Console.ReadLine();
+                            ok = correctDateFormat(tempBD);
+                        } while (!ok);
+                        dataDiNascita = tempBD;
+                        do
+                        {
+                            Console.WriteLine("Inserire il numero del ruolo");
+                            Console.WriteLine(sB2.ToString());
+                            ok = int.TryParse(Console.ReadLine(), out sceltaRuolo);
+                        } while (!ok);
                         query += $"('{squadre[sceltaSquadra]}', {numero}, '{nome}', '{cognome}', '{dataDiNascita}', '{ruoli[sceltaRuolo]}'),\n";
                         break;
                     case 2:
@@ -79,7 +96,20 @@ namespace QueryMaker
                 }
             } while (scelta != 2);
             Console.WriteLine("Query da eseguire:");
-            Console.WriteLine(query.Remove(query.Length - 1) + ";");
+            Console.WriteLine(query.Substring(0, query.Length - 1) + ";");
+        }
+
+        public static bool correctDateFormat(string datetime)
+        {
+            int trattinoCounter = 0;
+            foreach (char c in datetime)
+            {
+                if (c == '-')
+                {
+                    trattinoCounter++;
+                }
+            }
+            return trattinoCounter == 2;
         }
     }
 }
