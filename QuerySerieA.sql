@@ -480,6 +480,31 @@ VALUES
 ('Roma', 11, 'Evan', 'Ferguson', '19-10-2004', 'Attaccante'),
 ('Roma', 9, 'Artem', 'Dovbyk', '21-06-1997', 'Attaccante'),
 ('Roma', 78, 'Robinio', 'Vaz', '17-02-2007', 'Attaccante');
+/*insert into Giocatori
+ (Squadra, Numero, Nome, Cognome, DataNascita, Ruolo)
+ values*/('Sassuolo', 49, 'Arijanet', 'Muric', '07-11-1998', 'Portiere'),
+('Sassuolo', 13, 'Stefano', 'Turati', '05-09-2001', 'Portiere'),
+('Sassuolo', 16, 'Gioele', 'Zacchi', '10-07-2003', 'Portiere'),
+('Sassuolo', 12, 'Giacomo', 'Satalina', '20-05-1999', 'Portiere'),
+('Sassuolo', 80, 'Tarik', 'Muharemovic', '28-02-2003', 'Difensore'),
+('Sassuolo', 21, 'Jay', 'Idzes', '02-06-2000', 'Difensore'),
+('Sassuolo', 5, 'Fali', 'Candé', '24-01-1998', 'Difensore'),
+('Sassuolo', 26, 'Cas', 'Odenthal', '26-09-2000', 'Difensore'),
+('Sassuolo', 19, 'Filippo', 'Romagna', '26-05-1997', 'Difensore'),
+('Sassuolo', 3, 'Josh', 'Doig', '18-05-2002', 'Difensore'),
+('Sassuolo', 15, 'Edoardo', 'Pieragnolo', '03-01-2003', 'Difensore'),
+('Sassuolo', 6, 'Sebastian', 'Walukievicz', '05-04-2000', 'Difensore'),
+('Sassuolo', 25, 'Woyo', 'Coulibaly', '26-05-1999', 'Difensore'),
+('Sassuolo', 17, 'Yeferson', 'Paz', '13-06-2002', 'Difensore'),
+('Sassuolo', 11, 'Daniel', 'Boloca', '22-12-1998', 'Centrocampista'),
+('Sassuolo', 35, 'Luca', 'Lipani', '18-05-2005', 'Centrocampista'),
+('Sassuolo', 18, 'Nemanja', 'Matic', '01-08-1988', 'Centrocampista'),
+('Sassuolo', 90, 'Ismaël', 'Koné', '16-06-2002', 'Centrocampista'),
+('Sassuolo', 42, 'Kristian', 'Thorstvedt', '13-03-1999', 'Centrocampista'),
+('Sassuolo', 40, 'Aster', 'Vranckx', '04-10-2002', 'Centrocampista'),
+('Sassuolo', 44, 'Edoardo', 'Iannoni', '11-04-2001', 'Centrocampista'),
+('Sassuolo', 7, 'Cristian', 'Volpato', '15-11-2003', 'Centrocampista'),
+('Sassuolo', 45, 'Armand', 'Laurienté', '04-12-1998', 'Attaccante');
 GO
 
 /* 8. Popolamento PARTITE (invariato) */
