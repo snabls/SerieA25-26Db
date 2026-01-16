@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\samuele.snabl\\Desktop\\SerieA\\SerieA25-26Db\\QueryMaker\\",
+  "WorkspaceRootPath": "C:\\Users\\samue\\Desktop\\SerieA25-26Db\\QueryMaker\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6E086A71-C5DC-4221-B231-22BFD01D417A}|QueryMaker\\QueryMaker.csproj|c:\\users\\samuele.snabl\\desktop\\seriea\\seriea25-26db\\querymaker\\querymaker\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6E086A71-C5DC-4221-B231-22BFD01D417A}|QueryMaker\\QueryMaker.csproj|c:\\users\\samue\\desktop\\seriea25-26db\\querymaker\\querymaker\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6E086A71-C5DC-4221-B231-22BFD01D417A}|QueryMaker\\QueryMaker.csproj|solutionrelative:querymaker\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -20,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\samuele.snabl\\Desktop\\SerieA\\SerieA25-26Db\\QueryMaker\\QueryMaker\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\samue\\Desktop\\SerieA25-26Db\\QueryMaker\\QueryMaker\\Program.cs",
               "RelativeDocumentMoniker": "QueryMaker\\Program.cs",
-              "ToolTip": "C:\\Users\\samuele.snabl\\Desktop\\SerieA\\SerieA25-26Db\\QueryMaker\\QueryMaker\\Program.cs",
+              "ToolTip": "C:\\Users\\samue\\Desktop\\SerieA25-26Db\\QueryMaker\\QueryMaker\\Program.cs",
               "RelativeToolTip": "QueryMaker\\Program.cs",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAQwGkAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAIwGkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-22T20:23:31.276Z",
               "EditorCaption": ""

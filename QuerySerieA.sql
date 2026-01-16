@@ -4,7 +4,55 @@ GO
 /* Imposta il formato data su Giorno-Mese-Anno */
 SET DATEFORMAT dmy;
 GO
+/* 2. Creazione Tabella SQUADRE */
+CREATE TABLE Squadre
+(
+    Nome varchar(20) PRIMARY KEY,
+    Citta varchar(30),
+    Sponsor varchar(55),
+    ColoriSociali varchar(100),
+    Allenatore varchar(50)
+);
+GO
 
+/* 3. Creazione Tabella GIOCATORI */
+/* Modifica: auto_increment sostituito da IDENTITY(1,1) */
+CREATE TABLE Giocatori
+(
+    IdGiocatore int IDENTITY(1,1) PRIMARY KEY,
+    Squadra varchar(20) REFERENCES Squadre(Nome),
+    Numero int,
+    Nome varchar(30),
+    Cognome varchar(30),
+    DataNascita date,
+    Ruolo varchar(20) 
+);
+GO
+
+/* 4. Creazione Tabella PARTITE */
+/* Modifica: auto_increment sostituito da IDENTITY(1,1) */
+CREATE TABLE Partite
+(
+    IdPartita int IDENTITY(1,1) PRIMARY KEY,
+    Giornata int,
+    SqCasa varchar(20) REFERENCES Squadre(Nome),
+    SqTrasf varchar(20) REFERENCES Squadre(Nome),
+    GolCasa int,
+    GolTrasf int
+);
+GO
+
+/* 5. Creazione Tabella GOL */
+/* Modifica: Marcatore cambiato da char(5) a INT per combaciare con IdGiocatore */
+CREATE TABLE Gol
+(
+    IdPartita int REFERENCES Partite(IdPartita),
+    Minuto int,
+    Marcatore int REFERENCES Giocatori(IdGiocatore),
+    Autogol int,
+    PRIMARY KEY (IdPartita, Minuto)
+);
+GO
 /* Inserimento SQUADRE (invariato) */
 INSERT INTO Squadre VALUES ('Atalanta', 'Bergamo', 'Lete', 'Nero ; Azzurro', 'Palladino');
 INSERT INTO Squadre VALUES ('Bologna', 'Bologna', 'Saputo', 'Rosso ; Blu', 'Italiano');
@@ -168,6 +216,7 @@ VALUES
 ('Cremonese', 77, 'David', 'Okereke', '29-08-1997', 'Attaccante'),
 ('Cremonese', 10, 'Jamie', 'Vardy', '11-01-1987', 'Attaccante'),
 ('Cremonese', 90, 'Federico', 'Bonazzoli', '21-05-1997', 'Attaccante'),
+('Cremonese', 9, 'Manuel', 'De Luca', '17-01-1998', 'Attaccante'),
 ('Fiorentina', 43, 'David', 'De Gea', '07-11-1990', 'Portiere'),
 ('Fiorentina', 1, 'Luca', 'Lezzerini', '24-03-1995', 'Portiere'),
 ('Fiorentina', 15, 'Pietro', 'Comuzzo', '20-02-2005', 'Difensore'),
@@ -479,10 +528,8 @@ VALUES
 ('Roma', 21, 'Paulo', 'Dybala', '15-11-1993', 'Attaccante'),
 ('Roma', 11, 'Evan', 'Ferguson', '19-10-2004', 'Attaccante'),
 ('Roma', 9, 'Artem', 'Dovbyk', '21-06-1997', 'Attaccante'),
-('Roma', 78, 'Robinio', 'Vaz', '17-02-2007', 'Attaccante');
-/*insert into Giocatori
- (Squadra, Numero, Nome, Cognome, DataNascita, Ruolo)
- values*/('Sassuolo', 49, 'Arijanet', 'Muric', '07-11-1998', 'Portiere'),
+('Roma', 78, 'Robinio', 'Vaz', '17-02-2007', 'Attaccante'),
+('Sassuolo', 49, 'Arijanet', 'Muric', '07-11-1998', 'Portiere'),
 ('Sassuolo', 13, 'Stefano', 'Turati', '05-09-2001', 'Portiere'),
 ('Sassuolo', 16, 'Gioele', 'Zacchi', '10-07-2003', 'Portiere'),
 ('Sassuolo', 12, 'Giacomo', 'Satalina', '20-05-1999', 'Portiere'),
@@ -504,7 +551,106 @@ VALUES
 ('Sassuolo', 40, 'Aster', 'Vranckx', '04-10-2002', 'Centrocampista'),
 ('Sassuolo', 44, 'Edoardo', 'Iannoni', '11-04-2001', 'Centrocampista'),
 ('Sassuolo', 7, 'Cristian', 'Volpato', '15-11-2003', 'Centrocampista'),
-('Sassuolo', 45, 'Armand', 'Laurienté', '04-12-1998', 'Attaccante');
+('Sassuolo', 45, 'Armand', 'Laurienté', '04-12-1998', 'Attaccante'),
+('Sassuolo', 20, 'Alieu', 'Fadera', '03-11-2001', 'Attaccante'),
+('Sassuolo', 10, 'Domenico', 'Berardi', '01-08-1994', 'Attaccante'),
+('Sassuolo', 77, 'Nicholas', 'Pierini', '06-08-1998', 'Attaccante'),
+('Sassuolo', 99, 'Andrea', 'Pinamonti', '19-05-1999', 'Attaccante'),
+('Sassuolo', 14, 'Laurs', 'Skjellerup', '12-08-2002', 'Attaccante'),
+('Sassuolo', 9, 'Walid', 'Cheddira', '22-01-1998', 'Attaccante'),
+('Sassuolo', 24, 'Luca', 'Moro', '25-01-2001', 'Attaccante'),
+('Torino', 81, 'Franco', 'Israel', '22-04-2000', 'Portiere'),
+('Torino', 1, 'Alberto', 'Paleari', '29-08-1992', 'Portiere'),
+('Torino', 71, 'Mihai', 'Popa', '12-10-2000', 'Portiere'),
+('Torino', 23, 'Saúl', 'Coco', '09-02-1999', 'Difensore'),
+('Torino', 44, 'Ardian', 'Ismajili', '30-09-1996', 'Difensore'),
+('Torino', 13, 'Guillermo', 'Maripán', '06-05-1994', 'Difensore'),
+('Torino', 5, 'Adam', 'Marina', '02-01-1994', 'Difensore'),
+('Torino', 15, 'Saba', 'Sazonov', '01-02-2002', 'Difensore'),
+('Torino', 3, 'Perr', 'Schuurs', '26-11-1999', 'Difensore'),
+('Torino', 25, 'Niels', 'Nkounkou', '01-11-2000', 'Difensore'),
+('Torino', 34, 'Cristiano', 'Biraghi', '01-09-1992', 'Difensore'),
+('Torino', 20, 'Valentino', 'Lazaro', '24-03-1996', 'Difensore'),
+('Torino', 16, 'Marcus', 'Pedersen', '16-07-2000', 'Difensore'),
+('Torino', 21, 'Ali', 'Dembélé', '05-01-2004', 'Difensore'),
+('Torino', 32, 'Kristjan', 'Asllani', '09-03-2002', 'Centrocampista'),
+('Torino', 61, 'Adrien', 'Tamèze', '04-02-1994', 'Centrocampista'),
+('Torino', 22, 'Cesare', 'Casadei', '10-01-2003', 'Centrocampista'),
+('Torino', 8, 'Ivan', 'Ilic', '17-03-2001', 'Centrocampista'),
+('Torino', 66, 'Gvidas', 'Gineitis', '15-04-2004', 'Centrocampista'),
+('Torino', 6, 'Emirhan', 'Ilkhan', '01-06-2004', 'Centrocampista'),
+('Torino', 10, 'Nikola', 'Vlasic', '04-10-1997', 'Centrocampista'),
+('Torino', 14, 'Tino', 'Anjorin', '23-11-2001', 'Centrocampista'),
+('Torino', 83, 'Sergiu', 'Perciun', '23-04-2006', 'Centrocampista'),
+('Torino', 92, 'Alieu', 'Njie', '14-05-2005', 'Attaccante'),
+('Torino', 7, 'Zakaria', 'Aboukhlal', '18-02-2000', 'Attaccante'),
+('Torino', 26, 'Cyril', 'Ngonge', '26-05-2000', 'Attaccante'),
+('Torino', 79, 'Zanos', 'Savva', '26-11-2005', 'Attaccante'),
+('Torino', 19, 'Ché', 'Adams', '13-07-1996', 'Attaccante'),
+('Torino', 18, 'Giovanni', 'Simeone', '05-07-1995', 'Attaccante'),
+('Torino', 91, 'Duván', 'Zapata', '01-04-1991', 'Attaccante'),
+('Udinese', 40, 'Maduka', 'Okoye', '28-08-1999', 'Portiere'),
+('Udinese', 90, 'Razvan', 'Sava', '21-06-2002', 'Portiere'),
+('Udinese', 1, 'Alessandro', 'Nunziante', '14-03-2007', 'Portiere'),
+('Udinese', 93, 'Daniele', 'Padelli', '25-10-1985', 'Portiere'),
+('Udinese', 28, 'Oumar', 'Solet', '07-02-2000', 'Difensore'),
+('Udinese', 31, 'Thomas', 'Kristensen', '17-01-2002', 'Difensore'),
+('Udinese', 13, 'Nicolò', 'Bertola', '23-03-2003', 'Difensore'),
+('Udinese', 2, 'Saba', 'Goglichidze', '25-06-2004', 'Difensore'),
+('Udinese', 27, 'Christian', 'Kabasele', '24-02-1991', 'Difensore'),
+('Udinese', 33, 'Jordan', 'Zemura', '14-11-1999', 'Difensore'),
+('Udinese', 11, 'Hassane', 'Kamara', '05-03-1994', 'Difensore'),
+('Udinese', 59, 'Alessandro', 'Zanoli', '03-10-2000', 'Difensore'),
+('Udinese', 19, 'Kingsley', 'Ehizibue', '25-05-1995', 'Difensore'),
+('Udinese', 77, 'Rui', 'Modesto', '07-10-1999', 'Difensore'),
+('Udinese', 8, 'Jesper', 'Karlström', '21-06-1995', 'Centrocampista'),
+('Udinese', 29, 'Abdoulaye', 'Camara', '28-09-2008', 'Centrocampista'),
+('Udinese', 14, 'Arthur', 'Atta', '14-01-2003', 'Centrocampista'),
+('Udinese', 38, 'Lennon', 'Miller', '25-08-2006', 'Centrocampista'),
+('Udinese', 32, 'Jurgen', 'Ekkellenkamp', '05-04-2000', 'Centrocampista'),
+('Udinese', 4, 'Sandri', 'Lovric', '28-03-1998', 'Centrocampista'),
+('Udinese', 24, 'Jakub', 'Piotrowski', '04-10-1997', 'Centrocampista'),
+('Udinese', 6, 'Oier', 'Zarraga', '04-01-1999', 'Centrocampista'),
+('Udinese', 20, 'Juan', 'Arizala', '10-10-2005', 'Centrocampista'),
+('Udinese', 10, 'Nicolò', 'Zaniolo', '02-07-1999', 'Centrocampista'),
+('Udinese', 7, 'Idrissa', 'Gueye', '16-09-2006', 'Attaccante'),
+('Udinese', 9, 'Keinan', 'Davis', '13-02-1998', 'Attaccante'),
+('Udinese', 18, 'Adam', 'Buksa', '12-07-1996', 'Attaccante'),
+('Udinese', 22, 'Brenner', '', '16-01-2000', 'Attaccante'),
+('Udinese', 15, 'Vakoun', 'Bayo', '10-01-1997', 'Attaccante'),
+('Udinese', 99, 'Damián', 'Pizarro', '28-03-2005', 'Attaccante'),
+('Pisa', 1, 'Adrian', 'Semper', '12-01-1998', 'Portiere'),
+('Pisa', 22, 'Simone', 'Scuffet', '31-05-1996', 'Portiere'),
+('Pisa', 12, 'Nícolas', '', '12-04-1988', 'Portiere'),
+('Pisa', 5, 'Simone', 'Canestrelli', '11-09-2000', 'Difensore'),
+('Pisa', 94, 'Giovanni', 'Bonfanti', '17-01-2003', 'Difensore'),
+('Pisa', 2, 'Rosen', 'Bozhinov', '23-01-2005', 'Difensore'),
+('Pisa', 26, 'Francesco', 'Coppola', '11-04-2005', 'Difensore'),
+('Pisa', 39, 'Raúl', 'Albiol', '04-09-1985', 'Difensore'),
+('Pisa', 47, 'Mateus', 'Lusuardi', '08-01-2004', 'Difensore'),
+('Pisa', 33, 'Arturo', 'Calabresi', '17-03-1996', 'Difensore'),
+('Pisa', 4, 'Antonio', 'Caracciolo', '30-06-1990', 'Difensore'),
+('Pisa', 44, 'Daniel', 'Denoon', '28-01-2004', 'Difensore'),
+('Pisa', 76, 'Jeremy', 'Mbambi', '04-05-2008', 'Difensore'),
+('Pisa', 6, 'Marius', 'Marin', '30-08-1998', 'Centrocampista'),
+('Pisa', 8, 'Malthe', 'Højholt', '16-04-2001', 'Centrocampista'),
+('Pisa', 14, 'Ebenezer', 'Akinsanmiro', '25-11-2004', 'Centrocampista'),
+('Pisa', 21, 'İsak', 'Vural', '28-05-2006', 'Centrocampista'),
+('Pisa', 20, 'Michel', 'Aebischer', '06-01-1997', 'Centrocampista'),
+('Pisa', 36, 'Gabriele', 'Piccinini', '06-04-2001', 'Centrocampista'),
+('Pisa', 15, 'Idrissa', 'Touré', '29-04-1998', 'Centrocampista'),
+('Pisa', 19, 'Tomás', 'Esteves', '03-04-2002', 'Centrocampista'),
+('Pisa', 11, 'Juan', 'Cuadrado', '26-05-1988', 'Centrocampista'),
+('Pisa', 3, 'Samuele', 'Angori', '07-10-2003', 'Centrocampista'),
+('Pisa', 99, 'Lorran', '', '04-07-2006', 'Centrocampista'),
+('Pisa', 10, 'Matteo', 'Tramoni', '20-01-2000', 'Centrocampista'),
+('Pisa', 23, 'Calvin', 'Stengs', '18-12-1998', 'Centrocampista'),
+('Pisa', 32, 'Stefano', 'Moreo', '30-06-1993', 'Centrocampista'),
+('Pisa', 7, 'Mehdi', 'Léris', '23-05-1998', 'Attaccante'),
+('Pisa', 17, 'Rafiu', 'Durosinmi', '01-01-2003', 'Attaccante'),
+('Pisa', 18, 'M''Bala', 'Nzola', '18-08-1996', 'Attaccante'),
+('Pisa', 9, 'Henrik', 'Meister', '13-11-2003', 'Attaccante'),
+('Pisa', 16, 'Louis', 'Buffon', '28-12-2007', 'Attaccante');
 GO
 
 /* 8. Popolamento PARTITE (invariato) */
@@ -513,16 +659,63 @@ VALUES
 (1, 'Genoa', 'Lecce', 0, 0),
 (1, 'Sassuolo', 'Napoli', 0, 2),
 (1, 'Roma', 'Bologna', 1, 0), 
-(1, 'Milan', 'Cremonese', 1, 2);
+(1, 'Milan', 'Cremonese', 1, 2),
+(1, 'Cagliari', 'Fiorentina', 1, 1),
+(1, 'Como', 'Lazio', 2, 0),
+(1, 'Atalanta', 'Pisa', 1, 1),
+(1, 'Juventus', 'Parma', 2, 0),
+(1, 'Udinese', 'Hellas Verona', 1, 1),
+(1, 'Inter', 'Torino', 5, 0),
+(2, 'Cremonese', 'Sassuolo', 3, 2),
+(2, 'Lecce', 'Milan', 0, 2),
+(2, 'Bologna', 'Como', 1, 0),
+(2, 'Parma', 'Atalanta', 1, 1),
+(2, 'Napoli', 'Cagliari', 1, 0),
+(2, 'Pisa', 'Roma', 0, 1),
+(2, 'Genoa', 'Juventus', 0, 1),
+(2, 'Torino', 'Fiorentina', 0, 0),
+(2, 'Inter', 'Udinese', 1, 2),
+(2, 'Lazio', 'Hellas Verona', 4, 0);
 GO
 
 /* 9. Popolamento GOL (invariato) */
 INSERT INTO Gol (IdPartita, Minuto, Marcatore, Autogol) 
 VALUES
-(2, 17, 380, 0), 
-(2, 57, 382, 0),
+(2, 17, 381, 0), 
+(2, 57, 383, 0),
 (3, 28, 114, 0),
-(3, 45, 344, 0),
+(3, 45, 345, 0),
 (3, 61, 137, 0),
-(4, 53, 432, 0);
+(4, 53, 433, 0), 
+(5, 68, 153, 0),
+(5, 94, 57, 0),
+(6, 47, 108, 0),
+(6, 73, 101, 0),
+(7, 26, 5, 1)
+(7, 50, 25, 0),
+(8, 59, 280, 0),
+(8, 84, 279, 0),
+(9, 53, 516, 0),
+(9, 73, 217, 0),
+(10, 18, 233, 0),
+(10, 36, 253, 0),
+(10, 51, 252, 0),
+(10, 62, 253, 0),
+(10, 72, 254, 0),
+(11, 37, 119, 0),
+(11, 39, 130, 0), 
+(11, 63, 477, 0),
+(11, 73, 475, 0),
+(11, 93, 138, 0),
+(12, 66, 357, 0),
+(12, 86, 361, 0),
+(13, 59, 50, 0),
+(14, 79, 14, 0),
+(14, 85, 420, 0),
+(15, 95, 382, 0),
+(16, 55, 445, 0),
+(17, 73, 279, 0),
+(19, 17, 241, 0),
+(19, 29, 536, 0),
+(19, 40, 527, 0);
 GO
