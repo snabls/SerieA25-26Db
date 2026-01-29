@@ -1,11 +1,12 @@
 USE Campionato25_26;
 GO
 
+IF EXISTS DROP TABLE 
 /* Imposta il formato data su Giorno-Mese-Anno */
 SET DATEFORMAT dmy;
 GO
 /* 2. Creazione Tabella SQUADRE */
-CREATE TABLE Squadre
+IF NOT EXISTS CREATE TABLE Squadre
 (
     Nome varchar(20) PRIMARY KEY,
     Citta varchar(30),
@@ -90,7 +91,7 @@ VALUES
 ('Atalanta', 5, 'Mitchel', 'Bakker', '20-06-2000', 'Difensore'),
 ('Atalanta', 69, 'Honest', 'Ahanor', '23-02-2008', 'Difensore'),
 ('Atalanta', 15, 'Marten', 'De Roon', '29-03-1991', 'Centrocampista'),
-('Atalanta', 13, 'Éderson', '', '07-07-1999', 'Centrocampista'),
+('Atalanta', 13, 'Éderson', 'da Silva', '07-07-1999', 'Centrocampista'),
 ('Atalanta', 6, 'Yunus', 'Musah', '29-11-2002', 'Centrocampista'),
 ('Atalanta', 8, 'Mario', 'Pasalic', '09-02-1995', 'Centrocampista'),
 ('Atalanta', 44, 'Marco', 'Brescianini', '20-01-2000', 'Centrocampista'),
@@ -274,7 +275,7 @@ VALUES
 ('Genoa', 40, 'Seydou', 'Fini', '02-06-2006', 'Attaccante'),
 ('Genoa', 76, 'Lorenzo', 'Venturino', '22-06-2006', 'Attaccante'),
 ('Genoa', 10, 'Junior', 'Messias', '13-05-1991', 'Attaccante'),
-('Genoa', 9, '', 'Vitinha', '15-03-2000', 'Attaccante'),
+('Genoa', 9, 'Vitinha', 'Oliveira', '15-03-2000', 'Attaccante'),
 ('Genoa', 21, 'Jeff', 'Ekhator', '11-11-2006', 'Attaccante'),
 ('Genoa', 29, 'Lorenzo', 'Colombo', '08-03-2002', 'Attaccante'),
 ('Genoa', 18, 'Caleb', 'Ekuban', '23-03-1994', 'Attaccante'),
@@ -302,11 +303,11 @@ VALUES
 ('Hellas Verona', 11, 'Jean-Daniel', 'Akpa Akpro', '11-10-1992', 'Centrocampista'),
 ('Hellas Verona', 10, 'Tomas', 'Suslov', '07-06-2002', 'Centrocampista'),
 ('Hellas Verona', 20, 'Grigoris', 'Kastanos', '30-01-1998', 'Centrocampista'),
-('Hellas Verona', 17, 'Giovane', '', '24-11-2003', 'Attaccante'),
+('Hellas Verona', 17, 'Giovane', 'do Nascimento', '24-11-2003', 'Attaccante'),
 ('Hellas Verona', 16, 'Gift', 'Orban', '17-07-2002', 'Attaccante'),
 ('Hellas Verona', 9, 'Amin', 'Sarr', '11-03-2001', 'Attaccante'),
 ('Hellas Verona', 25, 'Daniel', 'Mosquera', '20-10-1999', 'Attaccante'),
-('Hellas Verona', 30, 'Isaac', '', '26-03-2004', 'Attaccante'),
+('Hellas Verona', 30, 'Isaac', 'Tomich', '26-03-2004', 'Attaccante'),
 ('Hellas Verona', 72, 'Junior', 'Ajayi', '11-10-2004', 'Attaccante'),
 ('Inter', 13, 'Josep', 'Martinez', '27-05-1998', 'Portiere'),
 ('Inter', 1, 'Yann', 'Sommer', '17-12-1988', 'Portiere'),
@@ -381,6 +382,7 @@ VALUES
 ('Lazio', 26, 'Toma', 'Basic', '25-11-1996', 'Centrocampista'),
 ('Lazio', 5, 'Matías', 'Vecino', '24-08-1991', 'Centrocampista'),
 ('Lazio', 7, 'Fisayo', 'Dele-Bashiru', '06-02-2001', 'Centrocampista'),
+('Lazio', 8, 'Mattéo', 'Guendouzi', '14-04-1999', 'Centrocampista'),
 ('Lazio', 10, 'Mattia', 'Zaccagni', '16-06-1995', 'Attaccante'),
 ('Lazio', 18, 'Gustav', 'Isaksen', '19-04-2001', 'Attaccante'),
 ('Lazio', 14, 'Tijjani', 'Noslin', '07-07-1999', 'Attaccante'),
@@ -388,6 +390,7 @@ VALUES
 ('Lazio', 9, 'Pedro', '', '28-07-1987', 'Attaccante'),
 ('Lazio', 19, 'Boulaye', 'Dia', '16-11-1996', 'Attaccante'),
 ('Lazio', 20, 'Petar', 'Ratkov', '18-08-2003', 'Attaccante'),
+('Lazio', 11, 'Taty', 'Castellanos', '03-10-1998', 'Attaccante'),
 ('Lecce', 30, 'Wladimiro', 'Falcone', '12-04-1994', 'Portiere'),
 ('Lecce', 1, 'Christian', 'Früchtl', '28-01-2000', 'Portiere'),
 ('Lecce', 32, 'Jasper', 'Samooja', '21-07-2003', 'Portiere'),
@@ -619,6 +622,7 @@ VALUES
 ('Udinese', 22, 'Brenner', '', '16-01-2000', 'Attaccante'),
 ('Udinese', 15, 'Vakoun', 'Bayo', '10-01-1997', 'Attaccante'),
 ('Udinese', 99, 'Damián', 'Pizarro', '28-03-2005', 'Attaccante'),
+('Udinese', 17, 'Iker', 'Bravo', '13-01-2005', 'Attaccante'),
 ('Pisa', 1, 'Adrian', 'Semper', '12-01-1998', 'Portiere'),
 ('Pisa', 22, 'Simone', 'Scuffet', '31-05-1996', 'Portiere'),
 ('Pisa', 12, 'Nícolas', '', '12-04-1988', 'Portiere'),
@@ -681,12 +685,12 @@ GO
 /* 9. Popolamento GOL (invariato) */
 INSERT INTO Gol (IdPartita, Minuto, Marcatore, Autogol) 
 VALUES
-(2, 17, 381, 0), 
-(2, 57, 383, 0),
+(2, 17, 383, 0), 
+(2, 57, 385, 0),
 (3, 28, 114, 0),
-(3, 45, 345, 0),
+(3, 45, 347, 0),
 (3, 61, 137, 0),
-(4, 53, 433, 0), 
+(4, 53, 435, 0), 
 (5, 68, 153, 0),
 (5, 94, 57, 0),
 (6, 47, 108, 0),
@@ -695,7 +699,7 @@ VALUES
 (7, 50, 25, 0),
 (8, 59, 280, 0),
 (8, 84, 279, 0),
-(9, 53, 516, 0),
+(9, 53, 518, 0),
 (9, 73, 217, 0),
 (10, 18, 233, 0),
 (10, 36, 253, 0),
@@ -704,18 +708,22 @@ VALUES
 (10, 72, 254, 0),
 (11, 37, 119, 0),
 (11, 39, 130, 0), 
-(11, 63, 477, 0),
-(11, 73, 475, 0),
+(11, 63, 479, 0),
+(11, 73, 477, 0),
 (11, 93, 138, 0),
-(12, 66, 357, 0),
-(12, 86, 361, 0),
+(12, 66, 359, 0),
+(12, 86, 363, 0),
 (13, 59, 50, 0),
 (14, 79, 14, 0),
-(14, 85, 420, 0),
-(15, 95, 382, 0),
-(16, 55, 445, 0),
+(14, 85, 422, 0),
+(15, 95, 384, 0),
+(16, 55, 447, 0),
 (17, 73, 279, 0),
 (19, 17, 241, 0),
-(19, 29, 536, 0),
-(19, 40, 527, 0);
+(19, 29, 538, 0),
+(19, 40, 529, 0),
+(20, 3, 303, 0),
+(20, 10, 304, 0),
+(20, 41, 311, 0),
+(20, 82, 309, 0);
 GO
